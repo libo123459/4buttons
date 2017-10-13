@@ -23,7 +23,7 @@ public class Manage : MonoBehaviour {
         CheckIfPrint();
         isStarted = false;
         pressNum = 0;
-        Nums.Clear();
+        Nums.Clear();//1
     }
 
     void CheckIfPrint()
