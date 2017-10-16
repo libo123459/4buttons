@@ -16,7 +16,6 @@ public class Manage : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            BTNs[i].GetComponent<Image>().color = new Color(1,1,1,1);
             BTNs[i].transform.localScale = new Vector3(1, 1, 1);
             BTNs[i].isSelected = false;
         }
@@ -46,14 +45,6 @@ public class Manage : MonoBehaviour {
     {
         xPre = xPos;
         yPre = yPos;
-    }
-    private void OnMouseDown()
-    {
-        
-    }
-    private void OnMouseUp()
-    {
-        
     }
     // Use this for initialization
     void Start () {

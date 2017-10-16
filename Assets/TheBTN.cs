@@ -11,7 +11,7 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
     public bool isSelected = false;
     public Text _text;
     Manage _manage;
-
+    float pressScale = 0.7f;
     public void OnPointerUp(PointerEventData eventData)
     {
         _manage.PressUpBtn();
@@ -24,9 +24,8 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
         Manage.isStarted = true;
         Manage.updateTheXandY(xPos,yPos);
         Manage.Nums.Add(_text);
-
-        this.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        this.transform.localScale = new Vector3(0.9f,0.9f,0.9f);
+        
+        this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
     }
 
     public void OnPointerEnter(PointerEventData eventData)//悬停选中
@@ -38,14 +37,21 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
             {
                 if (this.xPos == Manage.xPre || this.yPos == Manage.yPre)
                 {
-                    isSelected = true;
+                    if (this.xPos == Manage.xPre && this.yPos == Manage.yPre)
+                    {
 
-                    this.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-                    this.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                    }
+                    else {
 
-                    Manage.updateTheXandY(xPos, yPos);
-                    Manage.Nums.Add(_text);
-                    Manage.pressNum++;
+                        isSelected = true;
+                        
+                        this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
+
+                        Manage.updateTheXandY(xPos, yPos);
+                        Manage.Nums.Add(_text);
+                        Manage.pressNum++;
+                    }
+                    
                 }
             }
         }        
@@ -59,7 +65,7 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     // Use this for initialization
     void Start () {
-        _manage = GameObject.Find("Main Camera").GetComponent<Manage>();
+        _manage = GameObject.Find("Manage").GetComponent<Manage>();
         _text = this.transform.GetChild(0).GetComponent<Text>();
 	}
 	
