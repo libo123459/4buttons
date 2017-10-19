@@ -10,8 +10,7 @@ public class Manage : MonoBehaviour {
     public static int xPre = 0;
     public static int yPre = 0;
     public List<TheBTN> BTNs = new List<TheBTN>();
-    public static List<Text> Nums = new List<Text>();
-
+    
     public void PressUpBtn()
     {
         for (int i = 0; i < 4; i++)
@@ -19,27 +18,11 @@ public class Manage : MonoBehaviour {
             BTNs[i].transform.localScale = new Vector3(1, 1, 1);
             BTNs[i].isSelected = false;
         }
-        CheckIfPrint();
+       
         isStarted = false;
         pressNum = 0;
-        Nums.Clear();//1
-    }
-
-    void CheckIfPrint()
-    {
-        if (pressNum == 3)
-        {
-            printNums();
-        }
-    }
-
-    void printNums()
-    {
-        for (int i = 0; i < Nums.Count; i++)
-        {
-            print("The" + i.ToString() + "Num is" + Nums[i].text);
-        }
-    }
+        
+    }    
 
     public static void updateTheXandY(int xPos,int yPos)
     {
@@ -50,12 +33,19 @@ public class Manage : MonoBehaviour {
     void Start () {
         BTNs[0].xPos = 0;
         BTNs[0].yPos = 0;
+        BTNs[0].suit = 1;
+
         BTNs[1].xPos = 1;
         BTNs[1].yPos = 0;
+        BTNs[1].suit = 2;
+
         BTNs[2].xPos = 0;
         BTNs[2].yPos = 1;
+        BTNs[2].suit = 3;
+
         BTNs[3].xPos = 1;
         BTNs[3].yPos = 1;
+        BTNs[3].suit = 4;
     }
 	
 	// Update is called once per frame

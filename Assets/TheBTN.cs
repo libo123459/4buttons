@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerDownHandler,IPointerUpHandler{
     public int xPos = 0;
     public int yPos = 0;
+    public int suit = 0;
     public bool isSelected = false;
     public Text _text;
     Manage _manage;
@@ -23,7 +24,6 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
         Manage.isStarted = true;
         Manage.updateTheXandY(xPos,yPos);
-        Manage.Nums.Add(_text);
         
         this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
     }
@@ -48,7 +48,7 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
                         this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
 
                         Manage.updateTheXandY(xPos, yPos);
-                        Manage.Nums.Add(_text);
+                        
                         Manage.pressNum++;
                     }
                     

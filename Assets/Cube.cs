@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class Cube : MonoBehaviour {
     public int suit;
     public int color;
-    public Text text;
 	// Use this for initialization
-	void Start () {
-        text = this.transform.GetChild(0).GetComponent<Text>();
+	void Awake () {
+        
 	}
 	
 	// Update is called once per frame
