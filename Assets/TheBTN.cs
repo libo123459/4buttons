@@ -13,6 +13,12 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
     public Text _text;
     Manage _manage;
     float pressScale = 0.7f;
+
+    void printThis()
+    {
+        print(this.name);
+    }
+
     public void OnPointerUp(PointerEventData eventData)
     {
         _manage.PressUpBtn();
@@ -24,7 +30,8 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
         Manage.isStarted = true;
         Manage.updateTheXandY(xPos,yPos);
-        
+        //  Manage.MatchTheBTNs(this);
+        printThis();
         this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
     }
 
@@ -48,8 +55,9 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
                         this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
 
                         Manage.updateTheXandY(xPos, yPos);
-                        
+                       // Manage.MatchTheBTNs(this);
                         Manage.pressNum++;
+                        printThis();
                     }
                     
                 }
@@ -60,7 +68,7 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
     public void OnPointerExit(PointerEventData eventData)//悬停离开
     {
         isSelected = false;
-        this.transform.localScale = new Vector3(1, 1, 1);
+        //this.transform.localScale = new Vector3(1, 1, 1);
     }
 
     // Use this for initialization

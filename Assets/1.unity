@@ -1146,11 +1146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a097af4c0649d4089103ad8221a730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubeList:
-  - {fileID: 1704849712}
-  - {fileID: 12422635}
-  - {fileID: 462965161}
-  - {fileID: 1806306146}
 --- !u!114 &1621112302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,11 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff359dafb7b468a498e62b8107184664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BTNs:
-  - {fileID: 847308699}
-  - {fileID: 1802949908}
-  - {fileID: 1966728277}
-  - {fileID: 1660539807}
 --- !u!4 &1621112303
 Transform:
   m_ObjectHideFlags: 0
@@ -1551,7 +1541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1789754248}
   m_Layer: 5
-  m_Name: TargetBTNS
+  m_Name: Cubes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,8 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TargetManage : MonoBehaviour {
-    public List<Cube> CubeList = new List<Cube>();
+    public static List<Cube> CubeList = new List<Cube>();
     Manage manage;
+
+    void initiCubelist()
+    {
+        GameObject tmp = GameObject.Find("Cubes");
+        for (int i = 0; i < 4; i++)
+        {
+            Cube c = tmp.transform.GetChild(i).GetComponent<Cube>();
+            CubeList.Add(c);
+        }
+    }
+
     void updateCubes()
     {
         int suit = Random.Range(1, 5);
@@ -41,21 +52,12 @@ public class TargetManage : MonoBehaviour {
         return array[index];
     }
 
-    void MatchTheBTNs(TheBTN _btn)
-    {
-        int index = Manage.pressNum - 1;
-        if (manage.BTNs[index].suit == CubeList[index].suit)
-        {
-            if (index < 3)
-            {
-                CubeList[index].transform.localScale = new Vector3(0.7f,0.7f,0.7f);
-            }
-        }
-    }
+    
 
 	// Use this for initialization
 	void Start () {
         manage = GameObject.Find("Manage").GetComponent<Manage>();
+        initiCubelist();
         updateCubes();
         displayCubesSuit();
 	}

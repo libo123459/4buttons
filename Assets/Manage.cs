@@ -9,8 +9,19 @@ public class Manage : MonoBehaviour {
     public static int pressNum = 0;
     public static int xPre = 0;
     public static int yPre = 0;
-    public List<TheBTN> BTNs = new List<TheBTN>();
-    
+    public static List<TheBTN> BTNs = new List<TheBTN>();
+
+    void initiBTNs()
+    {
+        GameObject tmp = GameObject.Find("4BTNS");
+        for (int i = 0; i < 4; i++)
+        {
+            TheBTN b = tmp.transform.GetChild(i).GetComponent<TheBTN>();
+            b.suit = i + 1;
+            BTNs.Add(b);
+        }
+    }
+
     public void PressUpBtn()
     {
         for (int i = 0; i < 4; i++)
@@ -28,24 +39,35 @@ public class Manage : MonoBehaviour {
     {
         xPre = xPos;
         yPre = yPos;
+
+    }
+
+    public static void MatchTheBTNs(TheBTN _btn)
+    {
+        int index = Manage.pressNum;
+        if (BTNs[index].suit == TargetManage.CubeList[index].suit)
+        {
+            if (index < 4)
+            {
+                TargetManage.CubeList[index].transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            }
+        }
     }
     // Use this for initialization
     void Start () {
+        initiBTNs();
+        print(BTNs.Count);
         BTNs[0].xPos = 0;
         BTNs[0].yPos = 0;
-        BTNs[0].suit = 1;
 
         BTNs[1].xPos = 1;
         BTNs[1].yPos = 0;
-        BTNs[1].suit = 2;
 
         BTNs[2].xPos = 0;
         BTNs[2].yPos = 1;
-        BTNs[2].suit = 3;
 
         BTNs[3].xPos = 1;
         BTNs[3].yPos = 1;
-        BTNs[3].suit = 4;
     }
 	
 	// Update is called once per frame
