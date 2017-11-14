@@ -16,7 +16,7 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
 
     void printThis()
     {
-        print(this.name);
+       // print(this.name);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -27,18 +27,18 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
     public void OnPointerDown(PointerEventData eventData)
     {        
         isSelected = true;
-
+        
         Manage.isStarted = true;
         Manage.updateTheXandY(xPos,yPos);
-        //  Manage.MatchTheBTNs(this);
-        printThis();
+        Manage.MatchTheBTNs(this);
+        Manage.pressNum++;
         this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
     }
 
     public void OnPointerEnter(PointerEventData eventData)//悬停选中
     {
 
-        if (Manage.pressNum < 3)
+        if (Manage.pressNum < 4)
         {
             if (Manage.isStarted == true && isSelected == false)
             {
@@ -53,9 +53,9 @@ public class TheBTN : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPo
                         isSelected = true;
                         
                         this.transform.localScale = new Vector3(pressScale, pressScale, pressScale);
-
+                        print(Manage.pressNum);
                         Manage.updateTheXandY(xPos, yPos);
-                       // Manage.MatchTheBTNs(this);
+                        Manage.MatchTheBTNs(this);
                         Manage.pressNum++;
                         printThis();
                     }

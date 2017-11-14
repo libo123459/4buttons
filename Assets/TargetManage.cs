@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TargetManage : MonoBehaviour {
     public static List<Cube> CubeList = new List<Cube>();
+    static List<int> targetList = new List<int>();
     Manage manage;
 
     void initiCubelist()
@@ -52,7 +53,13 @@ public class TargetManage : MonoBehaviour {
         return array[index];
     }
 
-    
+    void CreateTheTargetList()//目标面板的数字花色LIST
+    {
+        for (int i = 0; i < CubeList.Count; i++)
+        {
+            targetList.Add(CubeList[i].suit);
+        }
+    }
 
 	// Use this for initialization
 	void Start () {

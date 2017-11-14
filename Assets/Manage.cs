@@ -28,6 +28,7 @@ public class Manage : MonoBehaviour {
         {
             BTNs[i].transform.localScale = new Vector3(1, 1, 1);
             BTNs[i].isSelected = false;
+            TargetManage.CubeList[i].transform.localScale = new Vector3(1,1,1);
         }
        
         isStarted = false;
@@ -39,13 +40,12 @@ public class Manage : MonoBehaviour {
     {
         xPre = xPos;
         yPre = yPos;
-
     }
 
     public static void MatchTheBTNs(TheBTN _btn)
     {
         int index = Manage.pressNum;
-        if (BTNs[index].suit == TargetManage.CubeList[index].suit)
+        if (_btn.suit == TargetManage.CubeList[index].suit)
         {
             if (index < 4)
             {
@@ -56,7 +56,6 @@ public class Manage : MonoBehaviour {
     // Use this for initialization
     void Start () {
         initiBTNs();
-        print(BTNs.Count);
         BTNs[0].xPos = 0;
         BTNs[0].yPos = 0;
 
